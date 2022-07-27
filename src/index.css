@@ -7,9 +7,45 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background: linear-gradient(to top left, #00b2b2, #4a148c);
+  background-repeat: cover;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Amazon Ember', sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  width: 100px;
+  transition-duration: 150ms;
+  transition-property: all;
+}
+
+button:hover {
+  background-color: #008296;
+  box-shadow: 0 0 10px #008296, 0 0 20px #00b2b2, 0 0 40px #008296;
+  color: white;
 }

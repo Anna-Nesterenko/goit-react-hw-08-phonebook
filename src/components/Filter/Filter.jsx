@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
+import { Field } from './Filter.styled';
 
 export const Filter = ({ value, onChangeFilter }) => {
   return (
-    <label htmlFor="">
-      Search
-      <input
+    <label>
+      Search contacts:
+      <Field
         type="text"
         value={value}
         onChange={onChangeFilter}
-        placeholder="search contact"
+        placeholder="enter contact"
       />
     </label>
   );
