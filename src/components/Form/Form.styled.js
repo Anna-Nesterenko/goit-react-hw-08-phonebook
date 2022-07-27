@@ -1,8 +1,19 @@
 import styled from 'styled-components';
 
+export const ContainerForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  width: 40%;
+`;
+
 export const Field = styled.input`
-  margin-left: 10px;
-  margin-right: 10px;
+  /* margin-left: 10px; */
+  margin-bottom: 15px;
+  margin-top: 15px;
+  /* margin-right: 10px; */
   border: transparent;
   background-color: transparent;
   border-bottom: 1px solid white;

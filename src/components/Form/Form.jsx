@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Field } from './Form.styled';
+import { Field, ContainerForm } from './Form.styled';
 // import { ContainerForm } from './Form.styled';
 
 export class Form extends Component {
@@ -29,7 +29,7 @@ export class Form extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <ContainerForm onSubmit={this.handleSubmit}>
         <label>
           Name
           <Field
@@ -57,7 +57,7 @@ export class Form extends Component {
           />
         </label>
         <button type="submit">Add contact</button>
-      </form>
+      </ContainerForm>
     );
   }
 }
