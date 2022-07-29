@@ -7,16 +7,36 @@ import styled from 'styled-components';
 export class App extends Component {
   state = {
     contacts: [
-      { id: nanoid(7), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: nanoid(7), name: 'Hermione Kline', number: '443-89-12' },
-      { id: nanoid(7), name: 'Eden Clements', number: '645-17-79' },
-      { id: nanoid(7), name: 'Annie Copeland', number: '227-91-26' },
+      // { id: nanoid(7), name: 'Rosie Simpson', number: '459-12-56' },
+      // { id: nanoid(7), name: 'Hermione Kline', number: '443-89-12' },
+      // { id: nanoid(7), name: 'Eden Clements', number: '645-17-79' },
+      // { id: nanoid(7), name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
   };
 
+  componentDidMount() {
+    const contactsLocal = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contactsLocal);
+    console.log(parsedContacts);
+    if (parsedContacts) {
+      this.setState({
+        contacts: parsedContacts.sort((a, b) => a.name.localeCompare(b.name)),
+      });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    const { contacts } = this.state;
+
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
+
   formSubmitData = objContact => {
     const { contacts } = this.state;
+
     const addContact = {
       id: nanoid(7),
       ...objContact,
