@@ -31,3 +31,20 @@ export const Field = styled.input`
       0 0 60px #008296;
   }
 `;
+
+export const BtnDisabled = styled.button`
+  color: ${props => (props.disabled ? `#7c7a7a` : ` #0f1111`)};
+  background-color: ${props => (props.disabled ? `#afaaaa` : `white`)};
+  border: 1px solid ${props => (props.disabled ? `#afaaaa` : `#d5d9d9`)};
+  box-shadow: ${props =>
+    props.disabled ? `none` : `rgba(213, 217, 217, 0.5) 0 2px 5px 0`};
+
+  &:hover {
+    color: ${props => (props.disabled ? `#7c7a7a` : `  white`)};
+    background-color: ${props => (props.disabled ? `#afaaaa` : `#008296`)};
+    box-shadow: ${props =>
+      props.disabled
+        ? `none`
+        : `0 0 10px #008296, 0 0 20px #00b2b2, 0 0 40px #008296`};
+  }
+`;

@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import { Field, ContainerForm } from './Form.styled';
-// import { ContainerForm } from './Form.styled';
+import { Field, ContainerForm, BtnDisabled } from './Form.styled';
 
 export class Form extends Component {
   state = {
@@ -56,7 +55,9 @@ export class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit">Add contact</button>
+        <BtnDisabled type="submit" disabled={!name || !number}>
+          Add contact
+        </BtnDisabled>
       </ContainerForm>
     );
   }
