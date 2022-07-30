@@ -21,7 +21,7 @@ export class App extends Component {
     console.log(parsedContacts);
     if (parsedContacts) {
       this.setState({
-        contacts: parsedContacts.sort((a, b) => a.name.localeCompare(b.name)),
+        contacts: parsedContacts,
       });
     }
   }
@@ -50,8 +50,10 @@ export class App extends Component {
       alert(`${objContact.name} is in your Contacts`);
       return;
     }
-
-    this.setState({ contacts: [...contacts, addContact] });
+    const sortArr = [...contacts, addContact].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    this.setState({ contacts: sortArr });
   };
 
   deleteContact = contactId => {
