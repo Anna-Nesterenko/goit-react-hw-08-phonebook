@@ -4,6 +4,7 @@ import { ContactContainer, ContactEl, ContactBtn } from './ContactList.styled';
 export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <ContactContainer>
+      {/* <h3>phonebook empty</h3> */}
       {contacts.map(({ id, name, number }) => (
         <ContactEl key={id}>
           <span>{name}: </span>
