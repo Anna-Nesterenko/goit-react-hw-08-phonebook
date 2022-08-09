@@ -40,6 +40,8 @@ export function App() {
   const getVisibleFilter = () =>
     contacts.filter(el => el.name.toLowerCase().includes(filter.toLowerCase()));
 
+  const empty = () => contacts.length > 0;
+
   return (
     <Container>
       <div>
@@ -49,10 +51,16 @@ export function App() {
       <div>
         <h2>Contacts</h2>
         <Filter value={filter} onChangeFilter={changeFilter} />
-        <ContactList
-          contacts={getVisibleFilter()}
-          onDeleteContact={deleteContact}
-        />
+        {empty() ? (
+          <ContactList
+            contacts={getVisibleFilter()}
+            onDeleteContact={deleteContact}
+          />
+        ) : (
+          <h3 style={{ marginTop: '55px', fontSize: '18px' }}>
+            Phonebook is empty! Add your contacts.
+          </h3>
+        )}
       </div>
     </Container>
   );
