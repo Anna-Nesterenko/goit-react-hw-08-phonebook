@@ -46,7 +46,7 @@ export function App() {
   console.log('render :>> ');
 
   return (
-    <Container style={{ alignItems: empty() ? 'none' : 'center' }}>
+    <Container>
       <div>
         <h1>Phonebook</h1>
         <Form onData={formSubmitData} />
@@ -62,7 +62,7 @@ export function App() {
             />
           </>
         ) : (
-          <h3 style={{ fontSize: '18px' }}>
+          <h3 style={{ marginTop: '100px', fontSize: '18px' }}>
             Phonebook is empty! Add your contacts.
           </h3>
         )}
