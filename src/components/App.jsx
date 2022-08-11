@@ -5,6 +5,7 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import useLocalStorage from 'hooks/useLocalStorage';
 import styled from 'styled-components';
+import toast, { Toaster } from 'react-hot-toast';
 
 export function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
@@ -18,7 +19,7 @@ export function App() {
     );
 
     if (isFindCopyContact) {
-      alert(`${name} is in your Contacts`);
+      toast.error(`${name} is in your Contacts`);
       return;
     }
 
@@ -42,25 +43,30 @@ export function App() {
 
   const empty = () => contacts.length > 0;
 
+  console.log('render :>> ');
+
   return (
-    <Container>
+    <Container style={{ alignItems: empty() ? 'none' : 'center' }}>
       <div>
         <h1>Phonebook</h1>
         <Form onData={formSubmitData} />
       </div>
       <div>
-        <h2>Contacts</h2>
-        <Filter value={filter} onChangeFilter={changeFilter} />
         {empty() ? (
-          <ContactList
-            contacts={getVisibleFilter()}
-            onDeleteContact={deleteContact}
-          />
+          <>
+            <h2>Contacts</h2>
+            <Filter value={filter} onChangeFilter={changeFilter} />
+            <ContactList
+              contacts={getVisibleFilter()}
+              onDeleteContact={deleteContact}
+            />
+          </>
         ) : (
-          <h3 style={{ marginTop: '55px', fontSize: '18px' }}>
+          <h3 style={{ fontSize: '18px' }}>
             Phonebook is empty! Add your contacts.
           </h3>
         )}
+        <Toaster position="top-center" reverseOrder={false} />
       </div>
     </Container>
   );
