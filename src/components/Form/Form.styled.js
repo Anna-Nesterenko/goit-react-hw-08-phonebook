@@ -5,7 +5,7 @@ export const ContainerForm = styled.form`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-
+  font-size: 22px;
   width: 40%;
 `;
 
@@ -20,6 +20,8 @@ export const Field = styled.input`
   outline: none;
   color: white;
   height: 20px;
+  font-family: inherit;
+  font-size: 18px;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.56);

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Field = styled.input`
-  margin-left: 10px;
+  margin-left: 15px;
   margin-right: 10px;
   border: transparent;
   background-color: transparent;
@@ -9,7 +9,8 @@ export const Field = styled.input`
   outline: none;
   color: white;
   height: 20px;
-
+  font-family: inherit;
+  font-size: 18px;
   &::placeholder {
     color: rgba(255, 255, 255, 0.56);
   }

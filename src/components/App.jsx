@@ -52,9 +52,9 @@ export function App() {
         <Form onData={formSubmitData} />
       </div>
       <div>
+        <h2>Contacts</h2>
         {empty() ? (
           <>
-            <h2>Contacts</h2>
             <Filter value={filter} onChangeFilter={changeFilter} />
             <ContactList
               contacts={getVisibleFilter()}
@@ -62,8 +62,8 @@ export function App() {
             />
           </>
         ) : (
-          <h3 style={{ marginTop: '100px', fontSize: '18px' }}>
-            Phonebook is empty! Add your contacts.
+          <h3 style={{ marginTop: '70px', fontSize: '22px' }}>
+            Phonebook is empty! <br /> Add your contacts.
           </h3>
         )}
         <Toaster position="top-center" reverseOrder={false} />
@@ -74,4 +74,8 @@ export function App() {
 
 const Container = styled.div`
   display: flex;
+  padding: 30px;
+  outline: 1px solid white;
+  box-shadow: 0 0 10px #00b2b2, 0 0 20px #008296, 0 0 30px #00b2b2,
+    0 0 60px #008296;
 `;

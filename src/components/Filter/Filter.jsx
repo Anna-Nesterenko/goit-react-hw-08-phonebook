@@ -3,13 +3,13 @@ import { Field } from './Filter.styled';
 
 export const Filter = ({ value, onChangeFilter }) => {
   return (
-    <label>
+    <label style={{ fontSize: '22px' }}>
       Search contacts:
       <Field
         type="text"
         value={value}
         onChange={onChangeFilter}
-        placeholder="enter contact"
+        placeholder="Enter contact..."
       />
     </label>
   );

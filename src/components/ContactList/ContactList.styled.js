@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const ContactContainer = styled.ul`
-  padding: 30px;
+  padding-bottom: 30px;
+  padding-inline-start: 0;
   margin: 0;
   margin-top: 30px;
-  outline: 1px solid white;
   width: 400px;
-  box-shadow: 0 0 10px #00b2b2, 0 0 20px #008296, 0 0 30px #00b2b2,
-    0 0 60px #008296;
 `;
 
 export const ContactEl = styled.li`
@@ -15,10 +13,10 @@ export const ContactEl = styled.li`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 10px;
-  
 
   & > span {
     width: 50%;
+    font-size: 22px;
   }
 `;
 
