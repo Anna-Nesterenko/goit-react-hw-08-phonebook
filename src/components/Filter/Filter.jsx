@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Field } from './Filter.styled';
 
-export const Filter = ({ value, onChangeFilter }) => {
+export const Filter = ({ value, onChangeFilter, theme }) => {
   return (
     <label style={{ fontSize: '22px' }}>
       Search contacts:
@@ -10,6 +10,7 @@ export const Filter = ({ value, onChangeFilter }) => {
         value={value}
         onChange={onChangeFilter}
         placeholder="Enter contact..."
+        theme={theme}
       />
     </label>
   );

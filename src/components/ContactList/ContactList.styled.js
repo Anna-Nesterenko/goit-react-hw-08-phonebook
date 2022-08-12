@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ContactContainer = styled.ul`
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
   padding-inline-start: 0;
   margin: 0;
   margin-top: 30px;

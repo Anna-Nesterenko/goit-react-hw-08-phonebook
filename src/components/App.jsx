@@ -6,10 +6,15 @@ import { Filter } from './Filter/Filter';
 import useLocalStorage from 'hooks/useLocalStorage';
 import styled from 'styled-components';
 import toast, { Toaster } from 'react-hot-toast';
+import { createContext } from 'react';
+import { Switch } from './Switch/Switch';
+
+export const ThemeContext = createContext(null);
 
 export function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
+  const [theme, setTheme] = useState('dark');
 
   const formSubmitData = (name, number) => {
     const addContact = { id: nanoid(7), name, number };
@@ -43,32 +48,37 @@ export function App() {
 
   const empty = () => contacts.length > 0;
 
-  console.log('render :>> ');
+  const toggleTheme = () => {
+    setTheme(curr => (curr === 'light' ? 'dark' : 'light'));
+  };
 
   return (
-    <Container>
-      <div>
-        <h1>Phonebook</h1>
-        <Form onData={formSubmitData} />
-      </div>
-      <div>
-        <h2>Contacts</h2>
-        {empty() ? (
-          <>
-            <Filter value={filter} onChangeFilter={changeFilter} />
-            <ContactList
-              contacts={getVisibleFilter()}
-              onDeleteContact={deleteContact}
-            />
-          </>
-        ) : (
-          <h3 style={{ marginTop: '70px', fontSize: '22px' }}>
-            Phonebook is empty! <br /> Add your contacts.
-          </h3>
-        )}
-        <Toaster position="top-center" reverseOrder={false} />
-      </div>
-    </Container>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <Container id={theme}>
+        <div>
+          <h1>Phonebook</h1>
+          <Form onData={formSubmitData} />
+        </div>
+        <div>
+          <h2>Contacts</h2>
+          {empty() ? (
+            <>
+              <Filter value={filter} onChangeFilter={changeFilter} />
+              <ContactList
+                contacts={getVisibleFilter()}
+                onDeleteContact={deleteContact}
+              />
+            </>
+          ) : (
+            <TextStyled>
+              Phonebook is empty! <br /> Add your contacts.
+            </TextStyled>
+          )}
+          <Toaster position="top-center" reverseOrder={false} />
+          <Switch theme={theme} toggleTheme={toggleTheme} />
+        </div>
+      </Container>
+    </ThemeContext.Provider>
   );
 }
 
@@ -77,5 +87,9 @@ const Container = styled.div`
   padding: 30px;
   outline: 1px solid white;
   box-shadow: 0 0 10px #00b2b2, 0 0 20px #008296, 0 0 30px #00b2b2,
-    0 0 60px #008296;
+    0 0 60px #008296, 0 0 80px #008296;
+`;
+const TextStyled = styled.h3`
+  margin-top: 70px;
+  font-size: 22px;
 `;

@@ -10,10 +10,8 @@ export const ContainerForm = styled.form`
 `;
 
 export const Field = styled.input`
-  /* margin-left: 10px; */
   margin-bottom: 15px;
   margin-top: 15px;
-  /* margin-right: 10px; */
   border: transparent;
   background-color: transparent;
   border-bottom: 1px solid white;
