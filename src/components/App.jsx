@@ -1,50 +1,37 @@
-import { useState } from 'react';
-import { nanoid } from 'nanoid';
+import { useState, createContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
+import styled from 'styled-components';
+// import useLocalStorage from 'hooks/useLocalStorage';
 import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import useLocalStorage from 'hooks/useLocalStorage';
-import styled from 'styled-components';
-import toast, { Toaster } from 'react-hot-toast';
-import { createContext } from 'react';
 import { Switch } from './Switch/Switch';
+import { addContact, removeContact, setFilter } from 'redux/actions';
+import { getFilter, getVisibleFilter } from 'redux/selectors';
 
 export const ThemeContext = createContext(null);
 
 export function App() {
-  const [contacts, setContacts] = useLocalStorage('contacts', []);
-  const [filter, setFilter] = useState('');
+  //   const [contacts, setContacts] = useLocalStorage('contacts', []);
+  //   const [filter, setFilter] = useState('');
   const [theme, setTheme] = useState('dark');
 
-  const formSubmitData = (name, number) => {
-    const addContact = { id: nanoid(7), name, number };
+  const contacts = useSelector(getVisibleFilter);
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
 
-    const isFindCopyContact = contacts.find(
-      el => el.name.toLocaleLowerCase() === name.toLocaleLowerCase()
-    );
-
-    if (isFindCopyContact) {
-      toast.error(`${name} is in your Contacts`);
-      return;
-    }
-
-    const sortArr = [...contacts, addContact].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-
-    setContacts(sortArr);
+  const onAddContact = payload => {
+    dispatch(addContact(payload));
   };
 
-  const deleteContact = contactId => {
-    setContacts(contacts.filter(contact => contact.id !== contactId));
+  const onDeleteContact = payload => {
+    dispatch(removeContact(payload));
   };
 
-  const changeFilter = e => {
-    setFilter(e.currentTarget.value);
+  const onSetFilter = ({ target }) => {
+    dispatch(setFilter(target.value));
   };
-
-  const getVisibleFilter = () =>
-    contacts.filter(el => el.name.toLowerCase().includes(filter.toLowerCase()));
 
   const empty = () => contacts.length > 0;
 
@@ -57,16 +44,16 @@ export function App() {
       <Container id={theme}>
         <div>
           <h1>Phonebook</h1>
-          <Form onData={formSubmitData} />
+          <Form onData={onAddContact} contacts={contacts} />
         </div>
         <div>
           <h2>Contacts</h2>
           {empty() ? (
             <>
-              <Filter value={filter} onChangeFilter={changeFilter} />
+              <Filter value={filter} onChangeFilter={onSetFilter} />
               <ContactList
-                contacts={getVisibleFilter()}
-                onDeleteContact={deleteContact}
+                contacts={contacts}
+                onDeleteContact={onDeleteContact}
               />
             </>
           ) : (

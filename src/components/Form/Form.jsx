@@ -1,32 +1,38 @@
 import { useState } from 'react';
 import { Field, ContainerForm, BtnDisabled } from './Form.styled';
+import toast from 'react-hot-toast';
 
-export function Form({ onData }) {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+export function Form({ contacts, onData }) {
+  const initialState = {
+    name: '',
+    number: '',
+  };
 
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
+  const [state, setState] = useState({ ...initialState });
+  const { name, number } = state;
 
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-
-      case 'number':
-        setNumber(value);
-        break;
-
-      default:
-        return;
-    }
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    onData(name, number);
-    setName('');
-    setNumber('');
+
+    const isFindCopyContact = contacts.find(
+      el => el.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+    );
+    if (isFindCopyContact) {
+      toast.error(`${name} is in your Contacts`);
+      setState({ ...initialState });
+      return;
+    }
+
+    onData({ ...state });
+    setState({ ...initialState });
   };
 
   return (
