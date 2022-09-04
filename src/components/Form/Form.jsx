@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Field, ContainerForm, BtnDisabled } from './Form.styled';
-import toast from 'react-hot-toast';
 
-export function Form({ contacts, onData }) {
+export function Form({ onData }) {
   const initialState = {
     name: '',
     number: '',
@@ -21,16 +20,6 @@ export function Form({ contacts, onData }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    const isFindCopyContact = contacts.find(
-      el => el.name.toLocaleLowerCase() === name.toLocaleLowerCase()
-    );
-    if (isFindCopyContact) {
-      toast.error(`${name} is in your Contacts`);
-      setState({ ...initialState });
-      return;
-    }
-
     onData({ ...state });
     setState({ ...initialState });
   };

@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 // import useLocalStorage from 'hooks/useLocalStorage';
 import { Form } from './Form/Form';
@@ -22,6 +22,14 @@ export function App() {
   const dispatch = useDispatch();
 
   const onAddContact = payload => {
+    const isFindCopyContact = contacts.find(
+      el => el.name.toLocaleLowerCase() === payload.name.toLocaleLowerCase()
+    );
+    if (isFindCopyContact) {
+      toast.error(`${payload.name} is in your Contacts`);
+      return;
+    }
+
     dispatch(addContact(payload));
   };
 
@@ -44,7 +52,7 @@ export function App() {
       <Container id={theme}>
         <div>
           <h1>Phonebook</h1>
-          <Form onData={onAddContact} contacts={contacts} />
+          <Form onData={onAddContact} />
         </div>
         <div>
           <h2>Contacts</h2>
