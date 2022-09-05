@@ -2,19 +2,17 @@ import { useState, createContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import toast, { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
-// import useLocalStorage from 'hooks/useLocalStorage';
+
 import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Switch } from './Switch/Switch';
-import { addContact, removeContact, setFilter } from 'redux/actions';
+import { addContact, removeContact, setFilter } from 'redux/slice';
 import { getFilter, getVisibleFilter } from 'redux/selectors';
 
 export const ThemeContext = createContext(null);
 
 export function App() {
-  //   const [contacts, setContacts] = useLocalStorage('contacts', []);
-  //   const [filter, setFilter] = useState('');
   const [theme, setTheme] = useState('dark');
 
   const contacts = useSelector(getVisibleFilter);
@@ -33,7 +31,8 @@ export function App() {
     dispatch(addContact(payload));
   };
 
-  const onDeleteContact = payload => {
+	const onDeleteContact = payload => {
+	  console.log(payload)
     dispatch(removeContact(payload));
   };
 
