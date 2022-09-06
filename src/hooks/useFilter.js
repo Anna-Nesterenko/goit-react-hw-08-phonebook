@@ -7,6 +7,7 @@ export const useFilter = () => {
   const dispatch = useDispatch();
 
   const onSetFilter = ({ target }) => {
+    //  console.log('target', target.value);
     dispatch(setFilter(target.value));
   };
 
