@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { ContactContainer, ContactEl, ContactBtn } from './ContactList.styled';
 
 export const ContactList = ({ contacts, onDeleteContact }) => {
-  //   console.log(contacts);
   return (
     <ContactContainer>
       {contacts.map(({ id, name, number }) => (

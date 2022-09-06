@@ -1,46 +1,19 @@
 import { useState, createContext } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 
 import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Switch } from './Switch/Switch';
-import { addContact, removeContact } from 'redux/contacts-slice';
-import { setFilter } from 'redux/filter-slice';
-import { getFilter, getVisibleFilter } from 'redux/selectors';
-
+import { useFilter } from 'hooks/useFilter';
+import { useContacts } from 'hooks/useContacts';
 export const ThemeContext = createContext(null);
 
 export function App() {
   const [theme, setTheme] = useState('dark');
-
-  const contacts = useSelector(getVisibleFilter);
-  const filter = useSelector(getFilter);
-  const dispatch = useDispatch();
-
-  const onAddContact = payload => {
-   
-    const isFindCopyContact = contacts.find(
-      el => el.name.toLocaleLowerCase() === payload.name.toLocaleLowerCase()
-    );
-    if (isFindCopyContact) {
-      toast.error(`${payload.name} is in your Contacts`);
-      return;
-    }
-
-    dispatch(addContact(payload));
-  };
-
-  const onDeleteContact = payload => {
-    //  console.log(payload);
-    dispatch(removeContact(payload));
-  };
-
-  const onSetFilter = ({ target }) => {
-    dispatch(setFilter(target.value));
-  };
+  const [filter, onSetFilter] = useFilter();
+  const [contacts, onAddContact, onDeleteContact] = useContacts();
 
   const empty = () => contacts.length > 0;
 

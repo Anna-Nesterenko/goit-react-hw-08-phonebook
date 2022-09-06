@@ -7,10 +7,6 @@ const contactsSlice = createSlice({
   reducers: {
     addContact: {
       reducer: (store, { payload }) => {
-        //   const sortArr = [...store, payload].sort((a, b) =>
-        //     a.name.localeCompare(b.name)
-        //   );
-        console.log(store, payload);
         store.push(payload);
       },
       prepare: data => {
