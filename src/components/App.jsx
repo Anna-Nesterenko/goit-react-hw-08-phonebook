@@ -15,6 +15,9 @@ export function App() {
   const [filter, onSetFilter] = useFilter();
   const [contacts, onAddContact, onDeleteContact] = useContacts();
 
+  //   if (contacts === [] || null || undefined) return contacts;
+  //   contacts.sort((a, b) => a.name.localeCompare(b.name));
+
   const empty = () => contacts.length > 0;
 
   const toggleTheme = () => {

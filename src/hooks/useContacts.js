@@ -8,6 +8,10 @@ export const useContacts = () => {
   const dispatch = useDispatch();
 
   const onAddContact = payload => {
+    //  console.log(contacts);
+
+    //  contacts.sort((a, b) => a.name.localeCompare(b.name));
+
     const isFindCopyContact = contacts.find(
       el => el.name.toLocaleLowerCase() === payload.name.toLocaleLowerCase()
     );
