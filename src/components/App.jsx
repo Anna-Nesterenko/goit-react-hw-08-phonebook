@@ -7,7 +7,8 @@ import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Switch } from './Switch/Switch';
-import { addContact, removeContact, setFilter } from 'redux/slice';
+import { addContact, removeContact } from 'redux/contacts-slice';
+import { setFilter } from 'redux/filter-slice';
 import { getFilter, getVisibleFilter } from 'redux/selectors';
 
 export const ThemeContext = createContext(null);
@@ -20,6 +21,7 @@ export function App() {
   const dispatch = useDispatch();
 
   const onAddContact = payload => {
+   
     const isFindCopyContact = contacts.find(
       el => el.name.toLocaleLowerCase() === payload.name.toLocaleLowerCase()
     );
@@ -31,8 +33,8 @@ export function App() {
     dispatch(addContact(payload));
   };
 
-	const onDeleteContact = payload => {
-	  console.log(payload)
+  const onDeleteContact = payload => {
+    //  console.log(payload);
     dispatch(removeContact(payload));
   };
 

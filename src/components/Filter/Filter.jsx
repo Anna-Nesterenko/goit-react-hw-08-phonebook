@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Field } from './Filter.styled';
 
 export const Filter = ({ value, onChangeFilter, theme }) => {
+  //   console.log(value, onChangeFilter);
   return (
     <label style={{ fontSize: '22px' }}>
       Search contacts:
