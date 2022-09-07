@@ -16,7 +16,6 @@ const contactsSlice = createSlice({
           a.name.localeCompare(b.name)
         );
         return sortArr;
-        //   return [...store, payload];
       },
       prepare: data => {
         return {

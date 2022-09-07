@@ -4,6 +4,8 @@ export const getFilter = ({ filter }) => filter;
 
 export const getVisibleFilter = ({ contacts = [], filter }) => {
   if (!filter) {
+    //  console.log(contacts);
+    //  console.log(filter);
     return contacts;
   }
 

@@ -15,9 +15,6 @@ export function App() {
   const [filter, onSetFilter] = useFilter();
   const [contacts, onAddContact, onDeleteContact] = useContacts();
 
-  //   if (contacts === [] || null || undefined) return contacts;
-  //   contacts.sort((a, b) => a.name.localeCompare(b.name));
-
   const empty = () => contacts.length > 0;
 
   const toggleTheme = () => {
@@ -33,9 +30,10 @@ export function App() {
         </div>
         <div>
           <h2>Contacts</h2>
+
+          <Filter value={filter} onChangeFilter={onSetFilter} />
           {empty() ? (
             <>
-              <Filter value={filter} onChangeFilter={onSetFilter} />
               <ContactList
                 contacts={contacts}
                 onDeleteContact={onDeleteContact}
@@ -62,6 +60,6 @@ const Container = styled.div`
     0 0 60px #008296, 0 0 80px #008296;
 `;
 const TextStyled = styled.h3`
-  margin-top: 70px;
+  margin-top: 50px;
   font-size: 22px;
 `;
