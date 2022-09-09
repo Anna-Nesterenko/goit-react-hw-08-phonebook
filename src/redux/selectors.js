@@ -1,12 +1,10 @@
-export const getContacts = ({ contacts }) => contacts;
+export const getContacts = ({ contacts }) => contacts.items;
 
 export const getFilter = ({ filter }) => filter;
 
-export const getVisibleFilter = ({ contacts = [], filter }) => {
+export const getVisibleFilter = ({ contacts, filter }) => {
   if (!filter) {
-    //  console.log(contacts);
-    //  console.log(filter);
-    return contacts;
+    return contacts.items;
   }
 
   return contacts.filter(el =>
