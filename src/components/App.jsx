@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 
@@ -14,6 +14,10 @@ export function App() {
   const [theme, setTheme] = useState('dark');
   const [filter, onSetFilter] = useFilter();
   const [contacts, onAddContact, onDeleteContact] = useContacts();
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const empty = () => contacts.length > 0;
 
