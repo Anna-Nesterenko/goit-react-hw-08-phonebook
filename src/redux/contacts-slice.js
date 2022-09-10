@@ -1,4 +1,3 @@
-// import { nanoid } from 'nanoid';
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, removeContact } from './contactsThunk';
 const initialState = {
@@ -17,7 +16,7 @@ const contactsSlice = createSlice({
     },
     [fetchContacts.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.items = payload;
+      store.items = payload.sort((a, b) => a.name.localeCompare(b.name));
     },
     [fetchContacts.rejected]: (store, { payload }) => {
       store.loading = false;
