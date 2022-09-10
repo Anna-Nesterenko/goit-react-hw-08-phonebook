@@ -10,7 +10,6 @@ export const useContacts = () => {
 
   useEffect(() => {
     dispatch(fetchContacts());
-   //  console.log(fetchContacts);
   }, [dispatch]);
 
   const onAddContact = payload => {

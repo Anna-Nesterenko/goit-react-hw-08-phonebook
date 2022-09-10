@@ -29,9 +29,8 @@ const contactsSlice = createSlice({
       store.error = null;
     },
     [addContact.fulfilled]: (store, { payload }) => {
-      console.log(store, { payload });
       store.loading = true;
-      return [...store, payload].items.sort((a, b) =>
+      store.items = [...store.items, payload].sort((a, b) =>
         a.name.localeCompare(b.name)
       );
     },
@@ -51,27 +50,7 @@ const contactsSlice = createSlice({
       store.loading = false;
       store.error = payload;
     },
-    //  addContact: {
-    //    reducer: (store, { payload }) => {
-    //      const sortArr = w.sort((a, b) =>
-    //        a.name.localeCompare(b.name)
-    //      );
-    //      return sortArr;
-    //    },
-    //    prepare: data => {
-    //      return {
-    //        payload: {
-    //          ...data,
-    //          id: nanoid(7),
-    //        },
-    //      };
-    //    },
-    //  },
-    //  removeContact: (store, { payload }) =>
-    //    store.filter(item => item.id !== payload),
   },
 });
-
-// export const { addContact, removeContact } = contactsSlice.actions;
 
 export default contactsSlice.reducer;
