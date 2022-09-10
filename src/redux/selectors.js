@@ -7,7 +7,7 @@ export const getVisibleFilter = ({ contacts, filter }) => {
     return contacts.items;
   }
 
-  return contacts.filter(el =>
+  return contacts.items.filter(el =>
     el.name.toLowerCase().includes(filter.toLowerCase())
   );
 };
