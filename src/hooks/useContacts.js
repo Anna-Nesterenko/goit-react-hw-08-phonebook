@@ -1,6 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleFilter } from 'redux/selectors';
-import { addContact, fetchContacts, removeContact } from 'redux/contactsThunk';
+import { getVisibleFilter } from 'redux/contacts/selectors';
+import {
+  addContact,
+  fetchContacts,
+  removeContact,
+} from 'redux/contacts/contactsThunk';
 import { toast } from 'react-hot-toast';
 import { useEffect } from 'react';
 
