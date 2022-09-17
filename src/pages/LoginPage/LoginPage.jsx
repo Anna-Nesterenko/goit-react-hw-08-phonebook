@@ -2,12 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { logIn } from 'redux/auth/authThunk';
-import { getAuthError, isAuth } from 'redux/auth/authSelectors';
-import toast from 'react-hot-toast';
+import { isAuth } from 'redux/auth/authSelectors';
+// import toast from 'react-hot-toast';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const { status } = useSelector(getAuthError);
+//   const { status } = useSelector(getAuthError);
   const isLogin = useSelector(isAuth);
 
   const onLogin = data => {
