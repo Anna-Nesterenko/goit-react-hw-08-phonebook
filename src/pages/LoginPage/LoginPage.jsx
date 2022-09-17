@@ -11,9 +11,9 @@ const LoginPage = () => {
   const isLogin = useSelector(isAuth);
 
   const onLogin = data => {
-    if (status === 400) {
-      toast.error('You are not already registered');
-    }
+    //  if (status === 400) {
+    //    toast.error('You are not already registered');
+    //  }
     dispatch(logIn(data));
   };
 

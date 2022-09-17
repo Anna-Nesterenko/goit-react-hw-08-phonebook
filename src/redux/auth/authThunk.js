@@ -28,3 +28,17 @@ export const logIn = createAsyncThunk(
     }
   }
 );
+
+export const logOut = createAsyncThunk(
+  'auth/logOut',
+  async (_, { rejectWithValue }) => {
+    try {
+      const result = await api.getLogOut();
+      return result;
+    } catch ({ response }) {
+      const { status, statusText } = response;
+      const error = { status, statusText };
+      return rejectWithValue(error);
+    }
+  }
+);
