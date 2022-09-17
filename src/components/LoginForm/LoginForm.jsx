@@ -2,15 +2,14 @@ import { Button, TextField, Box, Container, Typography } from '@mui/material';
 
 import { useState } from 'react';
 
-export function RegisterForm({ onData }) {
+export function LoginForm({ onData }) {
   const initialState = {
-    name: '',
     email: '',
     password: '',
   };
 
   const [state, setState] = useState({ ...initialState });
-  const { name, email, password } = state;
+  const { email, password } = state;
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -40,25 +39,14 @@ export function RegisterForm({ onData }) {
           variant="h4"
           style={{ fontFamily: 'Caveat', fontWeight: '600' }}
         >
-          Sign Up
+          Log In
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
             margin="normal"
             required
             fullWidth
-            label="User name"
-            name="name"
-            autoComplete="name"
             autoFocus
-            value={name}
-            variant="standard"
-            onChange={handleChange}
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
             label="Email Address"
             name="email"
             autoComplete="email"
@@ -86,7 +74,7 @@ export function RegisterForm({ onData }) {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+            Log In
           </Button>
         </Box>
       </Box>
