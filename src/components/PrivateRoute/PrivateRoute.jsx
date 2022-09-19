@@ -6,7 +6,7 @@ export const PrivateRoute = () => {
   const isLogin = useSelector(isAuth);
 
   if (!isLogin) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/login" />;
   }
   return <Outlet />;
 };

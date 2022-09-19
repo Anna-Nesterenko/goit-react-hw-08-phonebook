@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { isAuth } from 'redux/auth/authSelectors';
 
-export const PublicRoute = () => {
+export const PublicRoute = ({ redirect }) => {
   const isLogin = useSelector(isAuth);
 
   if (isLogin) {
