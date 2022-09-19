@@ -1,0 +1,21 @@
+.link {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  color: black;
+  border-bottom: 4px double black;
+}
+
+.link:hover {
+  color: #66d0d0;
+  border-bottom: 4px double #66d0d0;
+}
+
+.link.active {
+  color: white;
+  border-bottom: 4px double white;
+}
+.link.active:hover {
+  color: #66d0d0;
+  border-bottom: 4px double #66d0d0;
+}
