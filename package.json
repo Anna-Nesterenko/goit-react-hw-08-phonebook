@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://Anna-Nesterenko.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.5",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.3",
@@ -20,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-switch": "^7.0.0",
     "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.3"
   },

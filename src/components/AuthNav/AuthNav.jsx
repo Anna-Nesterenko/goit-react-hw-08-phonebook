@@ -1,4 +1,4 @@
-import { NavStyled } from '../MainBar/MainBar.styled';
+import { NavStyled } from 'components/Navigation/Navigation.styled';
 
 export const AuthNav = () => {
   return (
