@@ -5,7 +5,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   width: 450px;
   /* margin-left: 20px; */
   background-color: rgba(226, 226, 226, 0.2);
@@ -25,7 +25,6 @@
   background-color: white;
   background-position: 10px 10px;
   padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
 }
 
