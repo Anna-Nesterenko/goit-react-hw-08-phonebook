@@ -72,7 +72,7 @@ function Weather() {
   return (
     <div className={css.wrapper}>
       <h1 className={css.weather_name}>
-        Weather App <span> 🌤 </span>
+        Weather <span> 🌤 </span>
       </h1>
       <div className={css.search_bar}>
         <input
