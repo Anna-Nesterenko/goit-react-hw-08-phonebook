@@ -1,4 +1,5 @@
 import { useState, createContext } from 'react';
+import { WrapperContacts } from './ContactsPage.styled';
 // import { Toaster } from 'react-hot-toast';
 
 import { Form } from 'components/Form/Form';
@@ -25,11 +26,11 @@ const ContactsPage = () => {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <Container id={theme}>
-        <div>
+        <WrapperContacts>
           <h1>Phonebook</h1>
           <Form onData={onAddContact} />
-        </div>
-        <div>
+        </WrapperContacts>
+        <WrapperContacts>
           <h2>Contacts</h2>
 
           <Filter value={filter} onChangeFilter={onSetFilter} />
@@ -47,7 +48,7 @@ const ContactsPage = () => {
           )}
           {/* <Toaster position="top-center" reverseOrder={false} /> */}
           <Switch theme={theme} toggleTheme={toggleTheme} />
-        </div>
+        </WrapperContacts>
       </Container>
     </ThemeContext.Provider>
   );

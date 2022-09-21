@@ -1,13 +1,16 @@
-// import { Loader } from 'components';
-// import { useFetchMovies } from 'hooks';
-
-import { HomeTitle } from './HomePage.styled';
+import Weather from 'components/WeatherApp/WeatherApp';
+import { HomeTitle, WrapperHomePage } from './HomePage.styled';
 
 const HomePage = () => {
   return (
-    <>
-      <HomeTitle>HomePage</HomeTitle>
-    </>
+    <WrapperHomePage>
+      <Weather></Weather>
+      <HomeTitle>
+        Hello, this is your PhoneBook. It is designed to help your brain not
+        remember numbers, but write them down. Create your own unique account
+        and get the opportunity to record your contacts.
+      </HomeTitle>
+    </WrapperHomePage>
   );
 };
 

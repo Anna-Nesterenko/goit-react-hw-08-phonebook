@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authThunk';
 import { getUser } from 'redux/auth/authSelectors';
+import styled from 'styled-components';
 
 export const UserMenu = () => {
   const { name } = useSelector(getUser);
@@ -10,10 +11,15 @@ export const UserMenu = () => {
 
   return (
     <div>
-      <span>{name}</span>
+      <StyledName>Hello, {name} </StyledName>
       <button onClick={onLogOut} type="button">
         Log Out
       </button>
     </div>
   );
 };
+export const StyledName = styled.span`
+  margin-right: 15px;
+  font-size: 22px;
+  color: white;
+`;

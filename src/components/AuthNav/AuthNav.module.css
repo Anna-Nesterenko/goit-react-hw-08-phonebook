@@ -4,6 +4,8 @@
   font-weight: 700;
   color: black;
   border-bottom: 4px double black;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .link:hover {

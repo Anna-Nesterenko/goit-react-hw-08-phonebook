@@ -6,10 +6,7 @@ import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { useDispatch } from 'react-redux';
 import { current } from 'redux/auth/authThunk';
-
-// import { GlobalStyles } from './GlobalStyles';
-// import { ToastContainer } from 'react-toastify';
-// import { NotFoundPage } from 'pages';
+import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
@@ -29,14 +26,7 @@ export const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="home"></Navigate>} />
 
-          <Route
-            path="home"
-            element={
-              <PublicRoute>
-                <HomePage />
-              </PublicRoute>
-            }
-          />
+          <Route path="home" element={<HomePage />} />
           <Route
             path="register"
             element={
@@ -61,6 +51,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
 

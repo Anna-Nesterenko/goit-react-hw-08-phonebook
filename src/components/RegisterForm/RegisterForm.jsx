@@ -34,6 +34,9 @@ export function RegisterForm({ onData }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          backgroundColor: 'white',
+          padding: '20px',
+          boxShadow: ' rgb(33 33 33) 0px 2px 10px 1px',
         }}
       >
         <Typography
@@ -84,7 +87,7 @@ export function RegisterForm({ onData }) {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 3, mb: 2, color: '#0f1111', background: '#008296' }}
           >
             Sign Up
           </Button>
