@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import ParticlesLines from 'components/ParticlesLines/ParticlesLines';
 
 export const NotFoundPage = () => {
   return (
     <>
+      <ParticlesLines />
       <ErrorTitle>Error 404</ErrorTitle>
       <ErrorText>Woops... Looks like this page doesn't exist!</ErrorText>
     </>

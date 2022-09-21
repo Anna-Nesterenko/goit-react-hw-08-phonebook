@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
 import { WrapperHeader, WrapperMain } from './Layout.styled';
+import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
@@ -10,7 +11,7 @@ export const Layout = () => {
         <Navigation />
       </WrapperHeader>
       <WrapperMain>
-        <Suspense fallback="Wait a little bit...">
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </WrapperMain>

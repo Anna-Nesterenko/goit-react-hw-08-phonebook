@@ -11,6 +11,7 @@ const RegisterPage = () => {
   const { status } = useSelector(getAuthError);
 
   const onRegister = data => {
+    console.log(data);
     if (status === 400) {
       toast.success('You are already authorized');
     }

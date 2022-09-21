@@ -3,7 +3,7 @@ import axios from 'axios';
 import css from './WeatherApp.module.css';
 
 function Weather() {
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({
     data: {},
     error: false,

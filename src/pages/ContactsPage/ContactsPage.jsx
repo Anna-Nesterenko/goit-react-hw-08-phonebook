@@ -1,7 +1,6 @@
 import { useState, createContext } from 'react';
 import { WrapperContacts } from './ContactsPage.styled';
 // import { Toaster } from 'react-hot-toast';
-
 import { Form } from 'components/Form/Form';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
