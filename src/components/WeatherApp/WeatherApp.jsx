@@ -94,7 +94,7 @@ function Weather() {
           value={query}
           onChange={event => setQuery(event.target.value)}
           onKeyPress={search}
-        />
+        ></CitySearch>
       </div>
 
       {weather.error && (

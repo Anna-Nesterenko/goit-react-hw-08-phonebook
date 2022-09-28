@@ -17,7 +17,7 @@ export const Field = styled.input`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 10px #00b2b2, 0 0 20px #008296, 0 0 30px #00b2b2,
+    box-shadow: 0 0 10px #008296, 0 0 20px #008296, 0 0 30px #008296,
       0 0 60px #008296;
   }
 `;

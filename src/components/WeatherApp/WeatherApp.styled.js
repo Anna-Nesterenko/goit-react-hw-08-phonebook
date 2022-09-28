@@ -28,7 +28,7 @@ export const CitySearch = styled.input`
   margin-bottom: 10px;
   background-color: white;
   background-position: 10px 10px;
-  padding: 12px 20px 12px 40px;
+  padding: 12px 20px 12px 20px;
   transition: width 0.4s ease-in-out;
   &:focus {
     width: 60%;
