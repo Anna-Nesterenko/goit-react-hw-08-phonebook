@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import axios from 'axios';
-import css from './WeatherApp.module.css';
+
+import {
+  CityName,
+  CitySearch,
+  WeatherName,
+  WeatherWrapper,
+  DateWrapper,
+  IconStyled,
+  DegStyled,
+  ErroreMessage,
+  WindStyled,
+} from './WeatherApp.styled';
 
 function Weather() {
   const [query, setQuery] = useState('');
@@ -21,7 +32,7 @@ function Weather() {
       'August',
       'September',
       'October',
-      'Nocvember',
+      'November',
       'December',
     ];
 
@@ -47,11 +58,11 @@ function Weather() {
       event.preventDefault();
       setQuery('');
       setWeather({ ...weather });
-      const url = 'https://api.openweathermap.org/data/2.5/weather';
+      const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
       const apiKey = 'f00c38e0279b7bc85480c3fe775d518c';
 
       await axios
-        .get(url, {
+        .get(baseUrl, {
           params: {
             q: query,
             units: 'metric',
@@ -64,21 +75,20 @@ function Weather() {
         .catch(error => {
           setWeather({ ...weather, data: {}, error: true });
           setQuery('');
-          console.log('error', error.message);
+          console.log(error.message);
         });
     }
   };
 
   return (
-    <div className={css.wrapper}>
-      <h1 className={css.weather_name}>
+    <WeatherWrapper>
+      <WeatherName>
         Weather <span> 🌤 </span>
-      </h1>
-      <div className={css.search_bar}>
-        <input
+      </WeatherName>
+      <div>
+        <CitySearch
           autoFocus
           type="text"
-          className={css.city_search}
           placeholder="Search City.."
           name="query"
           value={query}
@@ -89,37 +99,37 @@ function Weather() {
 
       {weather.error && (
         <>
-          <span className={css.error_message}>
+          <ErroreMessage>
             <span style={{ fontSize: '26px' }}> Sorry, City not found</span>
-          </span>
+          </ErroreMessage>
         </>
       )}
 
       {weather && weather.data && weather.data.main && (
         <div>
-          <div className={css.city_name}>
+          <CityName>
             <h2>
               {weather.data.name}, <span>{weather.data.sys.country}</span>
             </h2>
-          </div>
-          <div className={css.date}>
+          </CityName>
+          <DateWrapper>
             <span>{toDate()}</span>
-          </div>
-          <div className={css.icon_temp}>
+          </DateWrapper>
+          <IconStyled>
             <img
               src={`https://openweathermap.org/img/wn/${weather.data.weather[0].icon}@2x.png`}
               alt={weather.data.weather[0].description}
             />
             {Math.round(weather.data.main.temp)}
-            <span className={css.deg}>&deg;C</span>
-          </div>
-          <div className={css.des_wind}>
+            <DegStyled> &deg;C </DegStyled>
+          </IconStyled>
+          <WindStyled>
             <p>{weather.data.weather[0].description.toUpperCase()}</p>
             <p>Wind Speed: {weather.data.wind.speed}m/s</p>
-          </div>
+          </WindStyled>
         </div>
       )}
-    </div>
+    </WeatherWrapper>
   );
 }
 

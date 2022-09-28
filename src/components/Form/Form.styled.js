@@ -10,7 +10,7 @@ export const ContainerForm = styled.form`
 `;
 
 export const Field = styled.input`
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   margin-top: 15px;
   border: transparent;
   background-color: transparent;
@@ -33,6 +33,7 @@ export const Field = styled.input`
 `;
 
 export const BtnDisabled = styled.button`
+  margin-bottom: 7px;
   color: ${props => (props.disabled ? `#7c7a7a` : ` #0f1111`)};
   background-color: ${props => (props.disabled ? `#afaaaa` : `white`)};
   border: 1px solid ${props => (props.disabled ? `#afaaaa` : `#d5d9d9`)};

@@ -16,4 +16,10 @@ export const TextStyled = styled.h3`
 export const WrapperContacts = styled.div`
   padding: 15px;
   box-shadow: rgb(33 33 33) 0px 2px 10px 1px;
+  @media screen and (max-width: 800px) {
+    margin-left: 10px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 `;
