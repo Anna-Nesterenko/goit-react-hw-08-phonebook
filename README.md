@@ -1,7 +1,7 @@
 ## PhoneBook App <br/>
-This is an application where you can record a new contact (number and phone number), <br/>
+This is an application where you can written a new contact (number and phone number), <br/>
 delete a contact, and search for a contact. <br/>
-It has the ability to change the topic and watch the weather
+It has the ability to change the theme and watch the weather
 
 ## Features <br/>
 * Log in, Sign up, Sign Out
